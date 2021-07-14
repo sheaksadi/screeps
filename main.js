@@ -37,7 +37,7 @@ module.exports.loop = function () {
     }
 
     defendRoom('W4N3')
-    defendRoom('W5N3')
+    // defendRoom('W5N3')
 
 
     let harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
