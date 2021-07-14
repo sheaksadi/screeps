@@ -89,6 +89,13 @@ function displaySpawner(){
             Game.spawns['Spawn1'].pos.x + 1,
             Game.spawns['Spawn1'].pos.y +1,
             {align: 'left', opacity: 0.8});
+    } if (Game.spawns['Spawn2'].spawning) {
+        var spawningCreep = Game.creeps[Game.spawns['Spawn2'].spawning.name];
+        Game.spawns['Spawn2'].room.visual.text(
+            '🛠️' + spawningCreep.memory.role,
+            Game.spawns['Spawn2'].pos.x + 1,
+            Game.spawns['Spawn2'].pos.y +1,
+            {align: 'left', opacity: 0.8});
     }
 }
 

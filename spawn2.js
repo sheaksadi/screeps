@@ -66,7 +66,15 @@ let roleclaim = require("role.claim")
 
          let claimCount = 0;
          let Count = 0;
+         let repairers= _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer2');
+         console.log('Repairer: ' + repairers.length);
 
+         if(repairers.length <repairerCount) {
+             let newName = 'Repairer' + Game.time;
+             console.log('Spawning new Repairer: ' + newName);
+             Game.spawns['Spawn2'].spawnCreep(body, newName,
+                 {memory: {role: 'repairer2',repairing:false}});
+         }
          let builder= _.filter(Game.creeps, (creep) => creep.memory.role == 'outerbuilder');
          console.log('Builders: ' + builder.length);
 
@@ -104,7 +112,7 @@ let roleclaim = require("role.claim")
                  roleBuilder.run(creep);
              }
 
-             if(creep.memory.role == 'repairer') {
+             if(creep.memory.role == 'repairer2') {
                  roleRepairer.run(creep);
              }
              if(creep.memory.role == 'outerHarvester') {
